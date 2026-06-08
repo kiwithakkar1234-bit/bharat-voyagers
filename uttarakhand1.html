@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bharat Voyagers</title>
+
+<style>
+body {
+    font-family: Arial;
+    margin:0;
+    background:linear-gradient(to right,#ff7e5f,#feb47b);
+}
+
+header {
+    position:fixed;
+    width:100%;
+    background:#000000cc;
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+nav a {
+    color:white;
+    margin:10px;
+    text-decoration:none;
+}
+
+.hero {
+    height:100vh;
+    background:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') center/cover;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    text-align:center;
+}
+
+section {
+    padding:80px 20px;
+}
+
+.card {
+    background:white;
+    padding:20px;
+    margin:20px auto;
+    border-radius:15px;
+    max-width:900px;
+}
+
+.packages {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.package {
+    width:280px;
+    margin:15px;
+    padding:20px;
+    border-radius:15px;
+    background:white;
+}
+
+button {
+    padding:10px;
+    background:#ff7e5f;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+button:hover {
+    background:#e65c3a;
+}
+
+#booking, #confirmation {
+    display:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>Bharat Voyagers</h2>
+<nav>
+<a href="#home">Home</a>
+<a href="#itinerary">Itinerary</a>
+<a href="#hotels">Hotels</a>
+<a href="#packages">Packages</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<div class="hero" id="home">
+<div>
+<h1>Explore Uttarakhand</h1>
+<p>Travel • Relax • Experience</p>
+</div>
+</div>
+
+<section id="itinerary">
+<div class="card">
+<h2>Travel Plans</h2>
+<p><b>Premium (5 Days):</b> Dehradun → Mussoorie → Rishikesh</p>
+<p><b>Exclusive (10 Days):</b> + Nainital & Jim Corbett</p>
+<p><b>VIP (12 Days):</b> + Auli, Kedarnath & Badrinath</p>
+</div>
+</section>
+
+<section id="hotels">
+<div class="card">
+<h2>Our Hotels</h2>
+<p><b>Premium:</b> 3-star hotels with WiFi & meals</p>
+<p><b>Exclusive:</b> 4-star hotels with spa & pool</p>
+<p><b>VIP:</b> 5-star luxury resorts</p>
+</div>
+</section>
+
+<section id="packages">
+<h2 style="text-align:center;">Packages</h2>
+
+<div class="packages">
+
+<div class="package">
+<h3>Premium</h3>
+<p>5 Days • ₹7,500/night</p>
+<button onclick="book('Premium')">Book Now</button>
+</div>
+
+<div class="package">
+<h3>Exclusive</h3>
+<p>10 Days • ₹12,000/night</p>
+<button onclick="book('Exclusive')">Book Now</button>
+</div>
+
+<div class="package">
+<h3>VIP</h3>
+<p>12 Days • ₹20,000/night</p>
+<button onclick="book('VIP')">Book Now</button>
+</div>
+
+</div>
+</section>
+
+<section id="booking">
+<div class="card">
+<h2>Booking Form</h2>
+<p id="selected"></p>
+
+<form onsubmit="confirmBooking(event)">
+<input type="text" placeholder="Name" required><br><br>
+<input type="email" placeholder="Email" required><br><br>
+<input type="date" required><br><br>
+
+<button type="submit">Proceed</button>
+</form>
+</div>
+</section>
+
+<section id="confirmation">
+<div class="card">
+<h2>Booking Confirmed 🎉</h2>
+<p>Thank you for choosing Bharat Voyagers.</p>
+<p>Our team will contact you soon.</p>
+</div>
+</section>
+
+<!-- ✅ CONTACT SECTION ADDED -->
+<section id="contact">
+<div class="card">
+<h2>Contact Us</h2>
+
+<p><b>📞 Phone:</b> +91 98765 43210</p>
+<p><b>📧 Email:</b> bharatvoyagers@gmail.com</p>
+<p><b>📍 Address:</b> Ahmedabad, Gujarat, India</p>
+
+<br>
+
+<h3>Send Message</h3>
+
+<form onsubmit="contactMsg(event)">
+<input type="text" placeholder="Your Name" required><br><br>
+<input type="email" placeholder="Your Email" required><br><br>
+<textarea placeholder="Your Message" required></textarea><br><br>
+
+<button type="submit">Send</button>
+</form>
+
+</div>
+</section>
+
+<script>
+function book(name){
+    document.getElementById("booking").style.display="block";
+    document.getElementById("selected").innerText="Selected Package: "+name;
+    window.location.href="#booking";
+}
+
+function confirmBooking(e){
+    e.preventDefault();
+    document.getElementById("booking").style.display="none";
+    document.getElementById("confirmation").style.display="block";
+    window.location.href="#confirmation";
+}
+
+function contactMsg(e){
+    e.preventDefault();
+    alert("Message sent! We will contact you soon.");
+}
+</script>
+
+</body>
+</html>
